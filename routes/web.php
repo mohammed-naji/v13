@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestController;
 
 // .
 // =>
@@ -17,20 +19,11 @@ use Illuminate\Support\Facades\Route;
 
 
 // https://www/mohamednaji.com/about
+Route::get('/', [TestController::class, 'about'])->name('homepage');
 
-Route::get('/', function() {
-    // return url('about');
+// Route::get('/', 'TestController@about')->name('homepage');
 
-
-    $name = 'mohammed';
-    $age = 29;
-    $user = 'mohnaji94';
-
-    // return url('user/'.$name.'/'.$age.'/'.$user);
-    return route('userprofile', [$name, $age, $user]);
-
-    // return route('aboutpage');
-})->name('homepage');
+// explode('@', 'TestController@about');
 
 Route::post('/', function() {
     return 'Homepage - Post';
@@ -95,4 +88,44 @@ Route::get('news/{id?}', function($id = '') {
 
 // $t->aa();
 
-Route::get('/', [HomeController::class, 'index'])->name('homepage');
+
+Route::get('/home', [SiteController::class, 'home'])->name('site.home');
+Route::get('/about', [SiteController::class, 'about'])->name('site.about');
+Route::get('/team', [SiteController::class, 'team'])->name('site.team');
+Route::get('/contact', [SiteController::class, 'contact'])->name('site.contact');
+Route::get('/services', [SiteController::class, 'services'])->name('site.services');
+
+Route::get('/post/{id?}', [SiteController::class, 'post'])->name('site.post');
+
+
+// Controller Types
+// 1. Normal
+// 2. Invoke
+// 3. Resource
+
+// products
+// create, read, update, delete
+
+Route::fallback(function() {
+    return redirect('/');
+});
+
+// Route::get('/{err}', function() {
+//     return 'Error';
+// });
+
+// Route::get('/{err}/{d}', function() {
+//     return 'Error';
+// });
+
+// Route::get('/{err}/{dd}/{rr}', function() {
+//     return 'Error';
+// });
+
+// Route::get('/{err}/{dd}/{ee}/{er}', function() {
+//     return 'Error';
+// });
+
+Route::match(['put', 'patch'], '/edit', function() {
+
+});
