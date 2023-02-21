@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Site1Controller;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestController;
@@ -106,9 +107,9 @@ Route::get('/post/{id?}', [SiteController::class, 'post'])->name('site.post');
 // products
 // create, read, update, delete
 
-Route::fallback(function() {
-    return redirect('/');
-});
+// Route::fallback(function() {
+//     return redirect('/');
+// });
 
 // Route::get('/{err}', function() {
 //     return 'Error';
@@ -129,3 +130,6 @@ Route::fallback(function() {
 Route::match(['put', 'patch'], '/edit', function() {
 
 });
+
+
+Route::get('site1', [Site1Controller::class, 'index'])->name('site1.index');
