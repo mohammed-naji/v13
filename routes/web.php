@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CreateController;
+use App\Http\Controllers\FreelancerController;
 use App\Http\Controllers\Site1Controller;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
@@ -133,3 +135,11 @@ Route::match(['put', 'patch'], '/edit', function() {
 
 
 Route::get('site1', [Site1Controller::class, 'index'])->name('site1.index');
+
+
+Route::get('freelancer', [FreelancerController::class, 'index'])->name('freelancer.index');
+
+Route::get('creative', [CreateController::class, 'index'])->name('creative.index');
+
+
+// alias pmc='php artisan make:controller'
