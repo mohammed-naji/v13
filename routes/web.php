@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CreateController;
 use App\Http\Controllers\FreelancerController;
 use App\Http\Controllers\Site1Controller;
@@ -143,3 +144,10 @@ Route::get('creative', [CreateController::class, 'index'])->name('creative.index
 
 
 // alias pmc='php artisan make:controller'
+
+Route::prefix('blog')->name('blog.')->group(function() {
+    Route::get('/', [BlogController::class, 'index'])->name('index');
+    Route::get('/about', [BlogController::class, 'about'])->name('about');
+    Route::get('/contact', [BlogController::class, 'contact'])->name('contact');
+    Route::get('/post', [BlogController::class, 'post'])->name('post');
+});
