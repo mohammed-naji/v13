@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CreateController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\FreelancerController;
 use App\Http\Controllers\Site1Controller;
 use App\Http\Controllers\SiteController;
@@ -151,3 +152,11 @@ Route::prefix('blog')->name('blog.')->group(function() {
     Route::get('/contact', [BlogController::class, 'contact'])->name('contact');
     Route::get('/post', [BlogController::class, 'post'])->name('post');
 });
+
+
+Route::get('form1', [FormController::class, 'form1'])->name('form1');
+Route::post('form1', [FormController::class, 'form1_data'])->name('form1_data');
+
+
+Route::get('form2', [FormController::class, 'form2'])->name('form2');
+Route::post('form2', [FormController::class, 'form2_data'])->name('form2_data');
