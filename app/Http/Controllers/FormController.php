@@ -1,8 +1,10 @@
 <?php
-
+// strict_type=1
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegisterRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class FormController extends Controller
 {
@@ -38,5 +40,51 @@ class FormController extends Controller
         $age = $request->age;
 
         return view('forms.form2_data', compact('name', 'age'));
+    }
+
+    public function form3()
+    {
+        return view('forms.form3');
+    }
+
+    public function form3_data(RegisterRequest $request)
+    {
+        // dd($request->all());
+        // Peroson $aay[];
+
+        // Validation Methods
+        // 1. Request Validation
+        // 2. Validator Class
+        // 3. File Request
+
+        // $request->validate([
+        //     'name' => 'required',
+        //     'email' => 'required',
+        //     'age' => 'required',
+        //     'password' => 'required|confirmed',
+        //     'gender' => 'required',
+        //     'education' => 'required',
+        //     'bio' => 'required',
+        // ]);
+
+        // Validator::make($request->all(),
+        //     [
+        //         'name' => 'required|min:4',
+        //         'email' => 'required',
+        //         'age' => 'required',
+        //         'password' => 'required|confirmed',
+        //         'gender' => 'required',
+        //         'education' => 'required',
+        //         'bio' => 'required',
+        //     ],
+        //     [
+        //         'name.required' => 'حقل الاسم مطلوب',
+        //         'name.min' => 'يجب اكمال الاسم',
+        //         'email.required' => 'حقل الايميل مطلوب جدا جدا',
+        //     ]
+        // )->validate();
+
+
+        dd($request->all());
     }
 }
