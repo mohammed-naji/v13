@@ -34,6 +34,7 @@ class RegisterRequest extends FormRequest
         ];
     }
 
+    // malqumbuz@gmail.com
     public function messages()
     {
         return [

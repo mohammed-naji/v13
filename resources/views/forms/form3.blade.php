@@ -14,6 +14,8 @@
         @dump($errors)
         @dump($errors->any()) --}}
 
+
+
         {{-- @include('forms.errors') --}}
 
         <form action="{{ route('form3_data') }}" method="post">
@@ -22,7 +24,7 @@
             <div class="mb-3">
                 <label>Name</label>
                 {{-- if($errors->has('name')) --}}
-                <input type="text" name="name" placeholder="Name" class="form-control @error('name') is-invalid @enderror" />
+                <input type="text" name="name" placeholder="Name" class="form-control @error('name') is-invalid @enderror" value="{{ old('name', 'Ali Ahmed') }}" />
                 {{-- Inline Error --}}
                 @error('name')
                     <small class="invalid-feedback">{{ $message }}</small>

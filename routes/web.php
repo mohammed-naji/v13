@@ -164,3 +164,12 @@ Route::post('form2', [FormController::class, 'form2_data'])->name('form2_data');
 
 Route::get('form3', [FormController::class, 'form3'])->name('form3');
 Route::post('form3', [FormController::class, 'form3_data'])->name('form3_data');
+
+Route::get('form4', [FormController::class, 'form4'])->name('form4');
+Route::post('form4', [FormController::class, 'form4_data'])->name('form4_data');
+
+Route::get('form5', [FormController::class, 'form5'])->name('form5');
+Route::post('form5', [FormController::class, 'form5_data'])->name('form5_data');
+
+Route::get('contact', [FormController::class, 'contact'])->name('contact');
+Route::post('contact', [FormController::class, 'contact_data'])->name('contact_data');
