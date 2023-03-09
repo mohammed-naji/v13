@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterRequest;
+use App\Mail\ContactUsMail;
+use App\Mail\TestMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -124,8 +126,18 @@ class FormController extends Controller
 
     public function contact_data(Request $request)
     {
-        dd($request->all());
+        // dd($request->except('_token'));
+        $data = $request->except('_token');
 
-        Mail::to('test@gmail.com');
+        // Upload File
+        // abc.pdf => 54984946544949449abc.pdf
+        $cvname = rand().time().$request->file('cv')->getClientOriginalName();
+        $request->file('cv')->move(public_path('uploads'), $cvname);
+
+        $data['cv'] = $cvname;
+
+        // dd($data);
+
+        Mail::to($request->send_to)->send(new ContactUsMail($data));
     }
 }

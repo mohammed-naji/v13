@@ -11,7 +11,7 @@
 
     <div class="container">
         <h2>Contact Us</h2>
-        <form method="POST" action="{{ route('contact_data') }}">
+        <form method="POST" action="{{ route('contact_data') }}" enctype="multipart/form-data">
             @csrf
 
             <div class="row">
@@ -40,7 +40,7 @@
                     <div class="mb-4">
                         <label>Send To</label>
                         <select name="send_to" class="form-select">
-                            <option value="suuport@example.com">Support</option>
+                            <option value="abedalrhman882001@gmail.com">Support</option>
                             <option value="sales@example.com">Sales</option>
                             <option value="customer@example.com">Customer</option>
                         </select>
@@ -48,9 +48,10 @@
                 </div>
             </div>
 
-
-
-
+            <div class="mb-4">
+                <label>CV</label>
+                <input type="file" class="form-control" name="cv" />
+            </div>
 
             <div class="mb-4">
                 <label>Message</label>
