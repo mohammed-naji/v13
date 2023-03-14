@@ -1,0 +1,27 @@
+* Create Posts Table
+1. Create new migration 
+php artisan make:migration create_posts_table
+
+2. Add Columns to Table
+database/migrations/create_posts_table
+$table-> col_type( col_name, length )->default()
+
+3. Transfer the table to phpmyadmin
+php artisan migrate
+
+-------------------
+
+To delete all tables through down method
+php artisan migrate:reset 
+
+To show the status of all migrations
+php artisan migrate:status
+
+To reintilize the database connection and tables
+php artisan migrate:fresh
+
+To recreate the all table
+php artisan migrate:refresh
+
+To Rollback the latest migration batch 
+php artisan migrate:rollback

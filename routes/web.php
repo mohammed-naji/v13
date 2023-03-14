@@ -4,6 +4,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CreateController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\FreelancerController;
+use App\Http\Controllers\Postcontroller;
 use App\Http\Controllers\Site1Controller;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
@@ -173,3 +174,17 @@ Route::post('form5', [FormController::class, 'form5_data'])->name('form5_data');
 
 Route::get('contact', [FormController::class, 'contact'])->name('contact');
 Route::post('contact', [FormController::class, 'contact_data'])->name('contact_data');
+
+
+// Route::get('posts', [Postcontroller::class, 'index'])->name('posts.index');
+
+// Route::get('posts/create', [Postcontroller::class, 'create'])->name('posts.create');
+// Route::post('posts', [Postcontroller::class, 'store'])->name('posts.store');
+
+// Route::get('posts/{id}/edit', [Postcontroller::class, 'edit'])->name('posts.edit');
+// Route::put('posts/{id}/update', [Postcontroller::class, 'update'])->name('posts.update');
+
+// Route::delete('posts/{id}/destroy', [Postcontroller::class, 'destroy'])->name('posts.destroy');
+
+Route::resource('posts', Postcontroller::class);
+

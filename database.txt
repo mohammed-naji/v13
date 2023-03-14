@@ -1,0 +1,44 @@
+Database => tables
+v13 => posts
+    => courses
+
+posts
+id | title | content | image | date
+1 | Real Madrid | lorem | a.png | 10-10-2010
+2 | Real Madrid | lorem | a.png | 10-10-2010
+
+courses
+id | title | image | hours | price | date
+
+
+posts 
+SELECT * FROM posts => SQL
+Post::all() => Laravel
+
+SELECT * FROM posts WHERE id = 5 => SQL
+Post::find(5) => Laravel
+
+SELECT * FROM posts WHERE title like '%new%'
+Post::where('title', 'like', '%new%')->get()
+
+
+DELETE posts WHERE id = 10 => SQL
+Post::deletebycol(10, name)
+Post::where('title', 'like', '%new%')->delete()
+
+
+INSERT INTO posts (title, image, content) VALUES ('new', 'aa.png', 'lorem')
+Post::create(['title' => 'new', 'image' => 'aa,png', 'content' => 'lorem'])
+
+
+UPDATE posts set title = '' WHERE id = 5
+Post::find(5)->update(['title' => 'new'])
+
+MVC
+Model , View , Controller
+
+wysiwyg
+
+
+
+
