@@ -25,3 +25,13 @@ php artisan migrate:refresh
 
 To Rollback the latest migration batch 
 php artisan migrate:rollback
+
+
+
+-------------------------
+
+CRUD Application
+C => Create -> INSERT
+R => Read -> SELECT
+U => Update -> UPDATE 
+D => Delete -> DELETE
