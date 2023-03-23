@@ -28,6 +28,15 @@
             <a href="{{ route('posts.create') }}" class="btn btn-dark btn-sm">Add New Post</a>
         </div>
 
+        @if (session('msg'))
+            <div class="alert alert-{{ session('type') }}">
+                {{ session('msg') }}
+            </div>
+        @endif
+
+        <div class="message-wrapper"></div>
+
+
         <table class="table table-bordered table-hover table-striped">
             <tr class="table-dark">
                 <th>ID</th>
@@ -48,7 +57,7 @@
                 <td>{{ $post->created_at->format('d F, Y') }}</td>
                 <td>{{ $post->updated_at->diffForHumans() }}</td>
                 <td>
-                    <a href="#" class="btn btn-primary btn-sm"> <i class="fas fa-edit"></i> </a>
+                    <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary btn-sm"> <i class="fas fa-edit"></i> </a>
 
                     {{-- <a href="{{ route('posts.destroy', $post->id) }}" class="btn btn-danger btn-sm"> <i class="fas fa-trash"></i> </a> --}}
 
@@ -64,6 +73,8 @@
             @endforeach
 
         </table>
+
+        {{ $posts->links() }}
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
@@ -82,13 +93,15 @@
         // xhttp.open("GET", "ajax_info.txt", true);
         // xhttp.send();
 
+
+        // Jquery
         $('.delete-form').click(function(e) {
             e.preventDefault()
 
             let delurl = $(this).attr('action');
+            // let data = new formData();
             let formdata = $(this).serialize();
             let form = $(this);
-
 
             // console.log(formdata);
 
@@ -99,7 +112,15 @@
                     type: 'post', // method
                     data: formdata,
                     success: function() { // request done successfully
-                        form.parent().parent().remove()
+                        // form.parent().parent().remove()
+                        form.parents('tr').remove()
+
+                        let msg = `
+            <div class="alert alert-danger">
+                Post Deleted Successfully
+            </div>`
+
+                        $('.message-wrapper').html(msg);
                     },
                     error: function() { // failed in request
 
@@ -107,9 +128,14 @@
                 })
             }
 
-
-
         })
+
+
+        // FetchAPI
+
+
+
+        // Axios
 
     </script>
 
