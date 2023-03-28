@@ -5,6 +5,7 @@ use App\Http\Controllers\CreateController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\FreelancerController;
 use App\Http\Controllers\Postcontroller;
+use App\Http\Controllers\RelationController;
 use App\Http\Controllers\Site1Controller;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
@@ -191,3 +192,4 @@ Route::get('posts/{id}/restore', [Postcontroller::class, 'restore'])->name('post
 Route::delete('posts/{id}/forcedelete', [Postcontroller::class, 'forcedelete'])->name('posts.forcedelete');
 Route::resource('posts', Postcontroller::class);
 
+Route::get('one-to-one', [RelationController::class, 'one_to_one']);
