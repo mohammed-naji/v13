@@ -57,6 +57,8 @@
                 <td>{{ $post->created_at->format('d F, Y') }}</td>
                 <td>{{ $post->updated_at->diffForHumans() }}</td>
                 <td>
+                    <a href="{{ route('posts.show', $post->id) }}" class="btn btn-success btn-sm"> <i class="fas fa-eye"></i> </a>
+
                     <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary btn-sm"> <i class="fas fa-edit"></i> </a>
 
                     {{-- <a href="{{ route('posts.destroy', $post->id) }}" class="btn btn-danger btn-sm"> <i class="fas fa-trash"></i> </a> --}}

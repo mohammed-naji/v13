@@ -193,3 +193,4 @@ Route::delete('posts/{id}/forcedelete', [Postcontroller::class, 'forcedelete'])-
 Route::resource('posts', Postcontroller::class);
 
 Route::get('one-to-one', [RelationController::class, 'one_to_one']);
+Route::get('one-to-many', [RelationController::class, 'one_to_many']);

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Insurance;
+use App\Models\Post;
 use App\Models\User;
+use App\Models\Insurance;
 use Illuminate\Http\Request;
 
 class RelationController extends Controller
@@ -23,5 +24,12 @@ class RelationController extends Controller
 
         return view('realtions.one_to_one', compact('users'));
 
+    }
+
+    public function one_to_many()
+    {
+        $post = Post::find(13);
+
+        dd($post->comments);
     }
 }

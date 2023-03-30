@@ -11,4 +11,9 @@ class Post extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = ['title', 'image', 'content'];
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }
